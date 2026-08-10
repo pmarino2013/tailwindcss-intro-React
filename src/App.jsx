@@ -1,9 +1,30 @@
+import { useEffect, useState } from "react";
+import CardUserApp from "./components/CardUserApp";
+
 const App = () => {
+  const [usuarios, setUsuarios] = useState([]);
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await fetch("https://devsapihub.com/api-users");
+        const data = await response.json();
+        setUsuarios(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUsers();
+  }, []);
+
   return (
-    <div className=" p-2 bg-slate-200 h-screen">
+    <div className=" p-2 bg-slate-200 min-h-screen">
       <h1 className="text-4xl text-center mb-5">Tailwindcss✨</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <article className="bg-gray-50 rounded-2xl px-8 py-3 flex gap-2">
+        {usuarios.map((user) => (
+          <CardUserApp user={user} key={user.id} />
+        ))}
+        {/* <article className="bg-gray-50 rounded-2xl px-8 py-3 flex gap-2">
           <picture>
             <img
               src="https://tailwindcss.com/_next/static/media/erin-lindford.0sv7~gc~8i-hf.jpg"
@@ -18,7 +39,7 @@ const App = () => {
               Message
             </button>
           </div>
-        </article>
+        </article> */}
       </div>
     </div>
   );
