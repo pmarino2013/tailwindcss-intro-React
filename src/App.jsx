@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div className=" p-2 bg-slate-200 h-screen">
-      <h1 className="text-4xl text-center mb-2">Tailwindcss✨</h1>
+      <h1 className="text-4xl text-center mb-5">Tailwindcss✨</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <article className="bg-gray-50 rounded-2xl px-8 py-3 flex gap-2">
           <picture>
