@@ -1,18 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import HomeScreen from "./views/HomeScreen";
-import AboutScreen from "./views/AboutScreen";
-import Error404Screen from "./views/Error404Screen";
-import LayoutApp from "./layout/LayoutApp";
+import RoutesBasic from "./routes/RoutesBasic";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LayoutApp />}>
-          <Route index element={<HomeScreen />} />
-          <Route path="about" element={<AboutScreen />} />
-          <Route path="*" element={<Error404Screen />} />
-        </Route>
+        <Route path="/*" element={<RoutesBasic />} />
       </Routes>
     </BrowserRouter>
   );
