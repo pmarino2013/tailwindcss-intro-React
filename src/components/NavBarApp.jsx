@@ -34,6 +34,10 @@ const NavBarApp = () => {
       text: "Comunidad",
       path: "comunidad",
     },
+    {
+      text: "Cerrar sesión",
+      path: "login",
+    },
   ];
   return (
     <nav className="flex px-5 md:justify-between md:items-center flex-col md:flex-row">
